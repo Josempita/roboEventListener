@@ -19,6 +19,6 @@ spec:
         - name: TEAMNAME
           value: ROBO-CLUSTERS
         - name: AMQPURL
-          value: amqp://robofullfillorder:5672
+          value: amqp://roborabbitmq:5672
         - name: PROCESSENDPOINT
           value: http://robofullfillorder.robo-dev:8080/v1/order
