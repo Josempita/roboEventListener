@@ -1,0 +1,28 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: roboeventhublistener
+  labels:
+    run: roboeventhublistener
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: roboeventhublistener
+    spec:
+      containers:
+      - name: roboeventhublistener
+        image: sabbour/eventhublistenerack:latest
+        imagePullPolicy: Always
+        env:
+        - name: EVENTHUBCONNSTRING
+          value: "Endpoint=sb://robo-dev-event-hub.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=Ea6RMUMhTXF00gF5cmasQUzYTlVNu//zK8F9dSIt8Hw=;EntityPath=robo-dev-event-hub"
+        - name: EVENTHUBPATH
+          value: "robo-dev-event-hub"
+        - name: TEAMNAME
+          value: "ROBO-CLUSTERS"
+        - name: PROCESSENDPOINT
+          value: http://roboFullFillOrder.robo-dev:8080/v1/order/
+        - name: PARTITIONKEY
+          value: "1"
