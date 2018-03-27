@@ -1,18 +1,18 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: roboEventListener
+  name: roboeventlistener
   labels:
-    run: roboEventListener
+    run: roboeventlistener
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        run: roboEventListener
+        run: roboeventlistener
     spec:
       containers:
-      - name: roboEventListener
+      - name: roboeventlistener
         image: sabbour/rabbitmqlistenerack:latest
         imagePullPolicy: Always
         env:
@@ -22,26 +22,3 @@ spec:
           value: amqp://$(MQ_URL):$(MQ_PORT)
         - name: PROCESSENDPOINT
           value: http://$(PROCESSENDPOINT_URL).$(PROCESSENDPOINT_NAMESPACE):8080/v1/order
- 
----
- 
-kind: Service
-apiVersion: v1
-metadata:
-  name: roboEventListenerService
-  annotations:
-     service.beta.kubernetes.io/azure-load-balancer-internal: "true"
-spec:
-  selector:
-    app: roboEventListenerService
-  ports:
-  - protocol: TCP
-    port: 443
-    targetPort: $(TARGET_PORT)
-  clusterIP: $(CLUSTER_IP)
-  loadBalancerIP: $(LOAD_BALANCER_IP)
-  type: LoadBalancer
-status:
-  loadBalancer:
-    ingress:
-    - ip: 0.0.0.1
