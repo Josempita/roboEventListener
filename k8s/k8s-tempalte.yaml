@@ -17,7 +17,7 @@ spec:
         imagePullPolicy: Always
         env:
         - name: EVENTHUBCONNSTRING
-          value: "Endpoint=ENDPOINT-URL"
+          value: "ENDPOINT-URL"
         - name: EVENTHUBPATH
           value: "EVENTHUB-PATH"
         - name: TEAMNAME

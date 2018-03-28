@@ -25,8 +25,6 @@ node {
   sh("sed -i.bak 's#NAME-SPACE#${env.BRANCH_NAME}#' ./k8s/*.yaml")
   sh("sed -i.bak 's#TEAM-NAME#${teamName}#' ./k8s/*.yaml")
   
-
-  ENDPOINT-URL
   switch (env.BRANCH_NAME) {
   // Roll out to dev
     case "robo-dev":
