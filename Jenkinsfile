@@ -8,12 +8,12 @@ node {
   //-----Dev Env Vars----//
   def devEndpointUrl = "Endpoint=sb://robo-dev-event-hub.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=Ea6RMUMhTXF00gF5cmasQUzYTlVNu//zK8F9dSIt8Hw=;EntityPath=robo-dev-event-hub"
   def devEventHubPath = "robo-dev-event-hub"
-  def devProcessEndpoint = "http://robofullfillorder.robo-dev:8080/v1/order/"
+  def devProcessEndpoint = "http://fulfill-service.robo-dev:8080/v1/order/"
   
   //-----Prod Env Vars----//
   def prodEndpointUrl = "Endpoint=sb://robo-prod-event-hub.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=rPNjMS4vqhL0OZ3SrpIsL0Z8CZ67cIdxQM9Ig4GkRdE="
   def prodEventHubPath = "robo-prod-event-hub"
-  def prodProcessEndpoint = "http://robofullfillorder.robo-prod:8080/v1/order/"
+  def prodProcessEndpoint = "http://fulfill-service.robo-prod:8080/v1/order/"
 
   checkout scm
 
