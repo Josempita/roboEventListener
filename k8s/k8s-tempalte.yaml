@@ -1,28 +1,28 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: roboeventhublistener
+  name: APP-NAME
   labels:
-    run: roboeventhublistener
+    run: APP-NAME
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        run: roboeventhublistener
+        run: APP-NAME
     spec:
       containers:
-      - name: roboeventhublistener
+      - name: APP-NAME
         image: DOCKER-IMAGE:latest
         imagePullPolicy: Always
         env:
         - name: EVENTHUBCONNSTRING
-          value: "Endpoint=sb://NAMESPACE-event-hub.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=Ea6RMUMhTXF00gF5cmasQUzYTlVNu//zK8F9dSIt8Hw=;EntityPath=robo-dev-event-hub"
+          value: "Endpoint=ENDPOINT-URL"
         - name: EVENTHUBPATH
-          value: "NAMESPACE-event-hub"
+          value: "EVENTHUB-PATH"
         - name: TEAMNAME
-          value: "ROBO-CLUSTERS"
+          value: "TEAM-NAME"
         - name: PROCESSENDPOINT
-          value: http://roboFullFillOrder.NAMESPACE:8080/v1/order/
+          value: "PROCESS-ENDPOINT"
         - name: PARTITIONKEY
           value: "1"
