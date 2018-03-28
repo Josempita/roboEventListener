@@ -2,7 +2,7 @@ node {
   def project = 'roboeventhublistener'
   def appName = 'roboeventhublistener'
   def feSvcName = "roboeventhublistener"
-  def imageTag = "rabbitsabbour/eventhublistenerackmq"
+  def imageTag = "abbour/eventhublistenerack"
   def teamName = "ROBO-CLUSTERS"
 
   //-----Dev Env Vars----//
